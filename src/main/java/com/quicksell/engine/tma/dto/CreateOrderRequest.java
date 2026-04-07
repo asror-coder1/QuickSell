@@ -14,5 +14,6 @@ public record CreateOrderRequest(
         @NotBlank String customerPhone,
         @NotNull PaymentType paymentType,
         @Valid @NotEmpty List<OrderItemRequest> items
+
 ) {
 }
