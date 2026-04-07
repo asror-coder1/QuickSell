@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/studentApi
+    username: postgres
+    password: root
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+security:
+  jwt:
+    secret: local-local-local-local-local-secret

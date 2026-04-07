@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: quicksell-engine
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/quicksell}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      repositories:
+        enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: true
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  flyway:
+    baseline-on-migrate: true
+
+server:
+  servlet:
+    context-path: /
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:change-me-change-me-change-me-please}
+    access-token-minutes: ${JWT_ACCESS_TOKEN_MINUTES:180}
+
+telegram:
+  webhook-enabled: false
+
+billing:
+  platform-fee-percent: 1.0
+
+logging:
+  level:
+    org.hibernate.SQL: info
+    org.springframework.security: info
